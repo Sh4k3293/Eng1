@@ -1,0 +1,29 @@
+@startuml DeliciasGourmet
+left to right direction
+
+    actor "Gerente de Compras" as g
+    actor "Vendedor" as v 
+    actor "Coordenador de Produção" as c
+    actor "Supervisor de estoque" as s
+    actor "Analista de qualidade" as a
+
+rectangle SistemaDeliciasGourmet{
+    usecase "Adquiri os materiais e ingredientes necessários" as UC1   
+    usecase "Gerencia os materiais em estoque" as UC2
+    usecase "Coordena a utilização dos ingredientes e materiais" as UC3
+    usecase "Monitora o processo de produção" as UC4
+    usecase "Conduz inspeçõe e garante conformidade nos produtos" as UC5
+    usecase "Coordena a entrega de produtos" as UC6
+    usecase "Fornece informações sobre a demanda" as UC7
+    g -- UC1
+    g --> s
+    s -- UC2
+    c -- UC3
+    UC1 --UC2
+    a--UC4
+    c--> UC6
+    c-->UC7
+    g-- v
+    v--UC6
+}
+@enduml
